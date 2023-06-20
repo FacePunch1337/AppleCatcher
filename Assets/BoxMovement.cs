@@ -9,7 +9,7 @@ public class BoxMovement : MonoBehaviour
     private void Awake()
     {
         boxRigidbody = GetComponent<Rigidbody>();
-        boxRigidbody.constraints = RigidbodyConstraints.FreezePositionZ; // Замораживаем позицию по оси Z
+       
     }
 
     private void FixedUpdate()

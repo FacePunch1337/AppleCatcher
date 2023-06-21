@@ -6,6 +6,7 @@ using UnityEngine;
 public class Ground : MonoBehaviour
 {
     public TMP_Text hp_Text;
+    public AudioManager audioManager;
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Apple"))
@@ -21,5 +22,6 @@ public class Ground : MonoBehaviour
     {
         yield return new WaitForSeconds(0f);
         Destroy(apple);
+        audioManager.PlayFailureSound();
     }
 }

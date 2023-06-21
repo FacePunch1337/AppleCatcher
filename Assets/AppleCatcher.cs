@@ -4,6 +4,11 @@ using TMPro;
 public class AppleCatcher : MonoBehaviour
 {
     public TMP_Text counter;
+    public AudioManager audioManager;
+
+    
+
+   
 
     private void OnTriggerEnter(Collider other)
     {
@@ -12,6 +17,7 @@ public class AppleCatcher : MonoBehaviour
             int count = int.Parse(counter.text);
             counter.text = (count + 1).ToString();
             Destroy(other.gameObject);
+            audioManager.PlaySuccessSound();
         }
     }
 }

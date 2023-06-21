@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public TMP_Text hp;
     public int maxScore;
     private int currentScore;
-    
+
 
     private void Start()
     {
@@ -19,16 +19,20 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void DecreaseScore()
+    private void Update()
     {
-        currentScore--;
-       
 
-        if (currentScore <= 0)
+        if (hp.text == "0")
         {
             EndGame();
         }
+        else if(hp.text != "0")
+        {
+            currentScore--;
+        }
     }
+
+ 
 
    
 
@@ -36,6 +40,7 @@ public class GameManager : MonoBehaviour
     {
         menuPanel.gameObject.SetActive(true);
         restartButton.gameObject.SetActive(true);
+        restartButton.gameObject.GetComponentInChildren<TMP_Text>().text = "Restart";
     }
 
     public void RestartGame()
@@ -43,6 +48,7 @@ public class GameManager : MonoBehaviour
         currentScore = maxScore;
 
         menuPanel.gameObject.SetActive(false);
-        restartButton.gameObject.SetActive(false);
+       
+
     }
 }

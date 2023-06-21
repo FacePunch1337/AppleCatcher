@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Ground : MonoBehaviour
 {
-    public TMPro.TextMeshPro hp_Text;
+    public TMP_Text hp_Text;
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Apple"))
@@ -19,7 +19,7 @@ public class Ground : MonoBehaviour
 
     private IEnumerator DestroyApple(GameObject apple)
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(0f);
         Destroy(apple);
     }
 }

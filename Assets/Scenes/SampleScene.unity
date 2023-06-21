@@ -492,7 +492,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &388939633
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -901,7 +901,7 @@ GameObject:
   - component: {fileID: 889117319}
   - component: {fileID: 889117318}
   m_Layer: 5
-  m_Name: Txt
+  m_Name: BestScoreTMP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1024,6 +1024,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 889117316}
   m_CullTransparentMesh: 1
+--- !u!1 &891941735 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6023214304075518586, guid: 1f524a612aa6e8c4386c5fa9e7ad38c0, type: 3}
+  m_PrefabInstance: {fileID: 6023214303111108440}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &895271894
 GameObject:
   m_ObjectHideFlags: 0
@@ -1106,7 +1111,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1146065962}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1162404170}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: PlayOrRestartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &895271897
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1497,9 +1514,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuPanel: {fileID: 1589290287}
+  appleSpawner: {fileID: 388939631}
+  box: {fileID: 891941735}
   restartButton: {fileID: 895271896}
-  hp: {fileID: 1313498227}
-  maxScore: 3
+  scoreTxt: {fileID: 1940223310}
+  hpTxt: {fileID: 1313498227}
+  bestScoreTxt: {fileID: 1962474867}
+  maxHPScore: 3
 --- !u!4 &1206785448 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6023214304075877978, guid: 1f524a612aa6e8c4386c5fa9e7ad38c0, type: 3}
@@ -1659,7 +1680,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1589290288
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1955,7 +1976,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 213419872}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1162404170}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ExitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &1768274243
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2134,7 +2167,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 10
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
@@ -2294,6 +2327,10 @@ PrefabInstance:
     - target: {fileID: 6023214304075518586, guid: 1f524a612aa6e8c4386c5fa9e7ad38c0, type: 3}
       propertyPath: m_Name
       value: Box
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023214304075518586, guid: 1f524a612aa6e8c4386c5fa9e7ad38c0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6023214304075877978, guid: 1f524a612aa6e8c4386c5fa9e7ad38c0, type: 3}
       propertyPath: m_RootOrder

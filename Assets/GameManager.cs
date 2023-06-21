@@ -5,50 +5,67 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public GameObject menuPanel;
+    public GameObject appleSpawner;
+    public GameObject box;
     public Button restartButton;
-    public TMP_Text hp;
-    public int maxScore;
-    private int currentScore;
+    public TMP_Text scoreTxt;
+    public TMP_Text hpTxt;
+    public TMP_Text bestScoreTxt;
 
+    public int maxHPScore;
+    private int hp;
+    private int score;
+    private int bestScore;
 
     private void Start()
     {
-        currentScore = int.Parse(hp.text);
-        hp.text = maxScore.ToString();
-
-
+        hp = int.Parse(hpTxt.text);
+        hpTxt.text = maxHPScore.ToString();
+        bestScore = PlayerPrefs.GetInt("BestScore", 0);
+        bestScoreTxt.text = bestScore.ToString();
     }
 
     private void Update()
     {
-
-        if (hp.text == "0")
+        if (hpTxt.text == "0")
         {
             EndGame();
         }
-        else if(hp.text != "0")
+        else if (hpTxt.text != "0")
         {
-            currentScore--;
+            hp--;
         }
     }
 
- 
 
-   
 
     private void EndGame()
     {
         menuPanel.gameObject.SetActive(true);
         restartButton.gameObject.SetActive(true);
         restartButton.gameObject.GetComponentInChildren<TMP_Text>().text = "Restart";
+        appleSpawner.SetActive(false);
+
+        int currentScore = int.Parse(scoreTxt.text);
+        if (currentScore > bestScore)
+        {
+            bestScore = currentScore;
+            bestScoreTxt.text = bestScore.ToString();
+            PlayerPrefs.SetInt("BestScore", bestScore);
+        }
     }
 
-    public void RestartGame()
+    public void PlayOrRestartGame()
     {
-        currentScore = maxScore;
-
+        hpTxt.text = maxHPScore.ToString();
+        scoreTxt.text = "0";
         menuPanel.gameObject.SetActive(false);
-       
+        appleSpawner.SetActive(true);
+        box.SetActive(true);
+    }
 
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }

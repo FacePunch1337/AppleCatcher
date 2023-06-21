@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using System;
 
 public class AppleCatcher : MonoBehaviour
 {
@@ -12,9 +9,9 @@ public class AppleCatcher : MonoBehaviour
     {
         if (other.CompareTag("Apple"))
         {
-            int text = Convert.ToInt32(counter.text);
-            text += 1;
-            counter.text = text.ToString();
+            int count = int.Parse(counter.text);
+            counter.text = (count + 1).ToString();
+            Destroy(other.gameObject);
         }
     }
 }
